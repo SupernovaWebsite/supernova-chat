@@ -4,269 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Supernova Chat</title>
-  <style>
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: #080b12;
-      color: #f5f7ff;
-      font-family: Inter, Arial, sans-serif;
-    }
-
-    header {
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 25px;
-      border-bottom: 1px solid #202536;
-    }
-
-    .logo {
-      font-size: 23px;
-      font-weight: 800;
-      letter-spacing: -1px;
-    }
-
-    .logo span { color: #a78bfa; }
-
-    .status {
-      color: #a8b1c7;
-      font-size: 12px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 230px 1fr;
-      min-height: calc(100vh - 70px);
-    }
-
-    aside {
-      padding: 22px 15px;
-      border-right: 1px solid #202536;
-    }
-
-    .new-chat {
-      width: 100%;
-      padding: 12px;
-      background: #171b2a;
-      border: 1px solid #30364c;
-      border-radius: 10px;
-      color: white;
-      cursor: pointer;
-    }
-
-    .side-label {
-      margin: 30px 8px 12px;
-      font-size: 11px;
-      color: #7f8aa5;
-      letter-spacing: 2px;
-    }
-
-    .conversation {
-      padding: 12px;
-      border-radius: 8px;
-      color: #b8c0d5;
-      cursor: pointer;
-    }
-
-    .conversation:hover { background: #171b2a; }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      min-height: calc(100vh - 70px);
-    }
-
-    .welcome {
-      margin: auto auto 30px;
-      width: min(650px, 90%);
-      text-align: center;
-    }
-
-    .orb {
-      width: 58px;
-      height: 58px;
-      margin: 0 auto 22px;
-      border-radius: 20px;
-      display: grid;
-      place-items: center;
-      font-size: 30px;
-      background: linear-gradient(135deg, #8b5cf6, #2563eb);
-      box-shadow: 0 0 45px #7048e744;
-    }
-
-    h1 {
-      font-size: clamp(30px, 5vw, 48px);
-      margin: 0 0 12px;
-      letter-spacing: -2px;
-    }
-
-    h1 span { color: #a78bfa; }
-
-    .subtitle {
-      color: #929bb2;
-      line-height: 1.7;
-    }
-
-    .messages {
-      width: min(720px, 92%);
-      margin: 0 auto;
-      flex: 1;
-      padding: 20px 0;
-    }
-
-    .bubble {
-      padding: 14px 17px;
-      margin: 12px 0;
-      border-radius: 15px;
-      line-height: 1.5;
-      overflow-wrap: anywhere;
-    }
-
-    .mine {
-      margin-left: auto;
-      background: #292044;
-      border: 1px solid #514078;
-      max-width: 80%;
-      width: fit-content;
-    }
-
-    .reply {
-      background: #121725;
-      border: 1px solid #252d40;
-      max-width: 85%;
-      width: fit-content;
-    }
-
-    .composer-wrap {
-      width: min(720px, 92%);
-      margin: 20px auto 28px;
-    }
-
-    .composer {
-      display: flex;
-      gap: 10px;
-      padding: 8px;
-      border: 1px solid #343b53;
-      background: #101521;
-      border-radius: 16px;
-      box-shadow: 0 0 35px #6d4aff0d;
-    }
-
-    input {
-      flex: 1;
-      min-width: 0;
-      background: transparent;
-      color: white;
-      border: 0;
-      outline: 0;
-      padding: 12px;
-      font-size: 15px;
-    }
-
-    .send {
-      border: 0;
-      border-radius: 11px;
-      padding: 0 19px;
-      color: white;
-      font-weight: bold;
-      background: #7955e8;
-      cursor: pointer;
-    }
-
-    .send:hover { background: #916ff7; }
-
-    .hint {
-      text-align: center;
-      font-size: 11px;
-      color: #68738b;
-      margin-top: 12px;
-    }
-
-    @media (max-width: 650px) {
-      .layout { grid-template-columns: 1fr; }
-      aside { display: none; }
-      header { padding: 0 17px; }
-      .welcome { margin-top: 65px; }
-      main { min-height: calc(100vh - 70px); }
-    }
-  </style>
+  <title>Supernova — Enter Your Universe</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <div class="logo">✦ supernova<span>.</span></div>
-    <div class="status">YOUR SPACE TO CONNECT</div>
+  <div class="stars"></div>
+
+  <header class="topbar">
+    <a class="logo" href="#">✦ SUPERNOVA</a>
+    <span class="status"><span class="dot"></span> YOUR UNIVERSE</span>
   </header>
 
-  <div class="layout">
-    <aside>
-      <button class="new-chat" id="newChat">+ New conversation</button>
-      <div class="side-label">WORKSPACE</div>
-      <div class="conversation">✧ General chat</div>
-      <div class="conversation">✧ Your messages</div>
-      <div class="side-label">ACCOUNT</div>
-      <div class="conversation">◉ Guest mode</div>
-    </aside>
+  <main class="hero">
+    <div class="planet">✦</div>
+    <p class="eyebrow">A NEW UNIVERSE AWAITS</p>
+    <h1>Find your <span>people.</span></h1>
+    <p class="subtitle">
+      One universe. Infinite conversations.<br>
+      Welcome to Supernova.
+    </p>
 
-    <main>
-      <section class="welcome" id="welcome">
-        <div class="orb">✦</div>
-        <h1>Chat beyond <span>limits.</span></h1>
-        <p class="subtitle">
-          Welcome to Supernova.<br>
-          A different space for conversations.
-        </p>
-      </section>
-
-      <section class="messages" id="messages"></section>
-
-      <div class="composer-wrap">
-        <form class="composer" id="chatForm">
-          <input id="messageInput"
-            placeholder="Message Supernova..."
-            autocomplete="off"
-            aria-label="Your message">
-          <button class="send" type="submit">Send ↗</button>
-        </form>
-        <div class="hint">
-          SUPER NOVA · A NEW SPACE TO CONNECT
-        </div>
+    <section class="auth-card">
+      <div class="tabs">
+        <button class="tab active" id="loginTab" type="button">
+          Sign In
+        </button>
+        <button class="tab" id="signupTab" type="button">
+          Sign Up
+        </button>
       </div>
-    </main>
-  </div>
 
-  <script>
-    const form = document.getElementById("chatForm");
-    const input = document.getElementById("messageInput");
-    const messages = document.getElementById("messages");
-    const welcome = document.getElementById("welcome");
+      <form id="authForm">
+        <label for="username">Username</label>
+        <input id="username" name="username"
+          placeholder="Enter your username"
+          autocomplete="username" required
+          minlength="3" maxlength="20">
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      const text = input.value.trim();
-      if (!text) return;
+        <label for="password">Password</label>
+        <input id="password" name="password"
+          type="password" placeholder="Enter your password"
+          autocomplete="current-password" required
+          minlength="8">
 
-      welcome.style.display = "none";
+        <button class="primary-btn" id="submitBtn" type="submit">
+          Enter Supernova ↗
+        </button>
+        <p id="authMessage" class="message" aria-live="polite"></p>
+      </form>
+      <p class="fine-print">Your next conversation starts here.</p>
+    </section>
+  </main>
 
-      const bubble = document.createElement("div");
-      bubble.className = "bubble mine";
-      bubble.textContent = text;
-      messages.appendChild(bubble);
+  <footer>SUPERNOVA © 2026 · EXPLORE YOUR UNIVERSE</footer>
 
-      input.value = "";
-      input.focus();
-    });
-
-    document.getElementById("newChat").addEventListener("click", () => {
-      messages.replaceChildren();
-      welcome.style.display = "";
-      input.value = "";
-      input.focus();
-    });
-  </script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
